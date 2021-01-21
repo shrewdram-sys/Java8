@@ -2,12 +2,18 @@ package com.dev.javatest.functionalInterfaces.data;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class StudentDataBase {
 
 	public static Supplier<Student> studentSupplier = () ->{
-		return new Student("Dave",3,3.9,"male", Arrays.asList("swimming", "gymnastics","soccer"));
+		Bike bike = new Bike();
+		bike.setName("Suzuki");
+		bike.setModel("Access125");
+		Student student = new Student("Dave",3,3.9,"male", Arrays.asList("swimming", "gymnastics","soccer"));
+		student.setBike(Optional.ofNullable(bike));
+		return student;
 	};
     /**
      * Total of 6 students in the database.
